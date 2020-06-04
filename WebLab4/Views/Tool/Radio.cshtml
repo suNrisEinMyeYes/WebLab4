@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Radio";
+}
+@model WebLab4.Models.Month
+<h1>Radio</h1>
+
+<form method="post">
+    Moths
+    <ul>
+        @foreach (var item in Model.months)
+        {
+            <li>
+                <input type="radio" name="months" value="@item" id="test" checked="checked" />
+                @item
+            </li>
+        }
+    </ul>
+    <input type="submit" value="Submit" />
+</form>

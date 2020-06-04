@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Reset";
+}
+@model WebLab4.Models.ResetRequiredInfo
+<h1>Reset</h1>
+<form asp-antiforgery="true" asp-action="Reset" asp-controller="ResetPass">
+    <div class="validation">
+        <label asp-for="email"></label>
+        <input type="text" asp-for="email" />
+        <span asp-validation-for="email"></span>
+    </div>
+    <button type="submit" name="submit" value="have">I have a code</button>
+    <button type="submit" name="submit" value="send">Send Code</button>
+</form>

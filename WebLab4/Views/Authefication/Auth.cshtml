@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "Auth";
+}
+
+@model WebLab4.Models.User
+<h2>Auth</h2>
+
+
+<form asp-antiforgery="true" asp-action="Auth" asp-controller="Authefication">
+
+    <div style="display:@ViewBag.Public">
+        <div class="validation">
+            <label asp-for="UserInfoModel.FirstName"></label>
+            <input type="text" asp-for="UserInfoModel.FirstName" />
+            <span asp-validation-for="UserInfoModel.FirstName"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="UserInfoModel.SecondName"></label>
+            <input type="text" asp-for="UserInfoModel.SecondName" />
+            <span asp-validation-for="UserInfoModel.SecondName"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="UserInfoModel.Month"></label>
+            <select asp-for="UserInfoModel.Month" asp-items="Model.UserInfoModel.Mounts">
+            </select>
+            <span asp-validation-for="UserInfoModel.Month"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="UserInfoModel.Day"></label>
+            <select asp-for="UserInfoModel.Day" asp-items="Model.UserInfoModel.Days">
+            </select>
+            <span asp-validation-for="UserInfoModel.Day"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="UserInfoModel.Year"></label>
+            <select asp-for="UserInfoModel.Year" asp-items="Model.UserInfoModel.Years">
+            </select>
+            <span asp-validation-for="UserInfoModel.Year"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="UserInfoModel.Gender"></label><br />
+            @foreach (var gender in Model.UserInfoModel.Genres)
+            {
+                <input type="radio" asp-for="UserInfoModel.Gender" value="@gender" />@gender<br />
+            }
+        </div>
+        <input type="submit" value="SignUp" name="action" />
+    </div>
+
+    <div style="display:@ViewBag.Private">
+        <div class="validation">
+            <label asp-for="PrivateUserInfoModel.email"></label>
+            <input type="text" asp-for="PrivateUserInfoModel.email" />
+            <span asp-validation-for="PrivateUserInfoModel.email"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="PrivateUserInfoModel.password"></label>
+            <input type="password" asp-for="PrivateUserInfoModel.password" />
+            <span asp-validation-for="PrivateUserInfoModel.password"></span>
+        </div>
+        <div class="validation">
+            <label asp-for="PrivateUserInfoModel.confirmPassword"></label>
+            <input type="password" asp-for="PrivateUserInfoModel.confirmPassword" />
+            <span asp-validation-for="PrivateUserInfoModel.confirmPassword"></span>
+        </div>
+        <input type="submit" value="Complete" name="action" />
+    </div>
+</form>

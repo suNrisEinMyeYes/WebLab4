@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ListBox";
+}
+@model WebLab4.Models.Month
+<h1>ListBox</h1>
+
+<form method="post">
+    Text
+    <select name="months" multiple>
+        @foreach (var item in Model.months)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Submit" />
+</form>
